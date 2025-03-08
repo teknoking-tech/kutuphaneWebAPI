@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  rest-api:
+    build: ./rest-api
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_USER=SYSTEM
+      - DB_PASSWORD=MyPassword123
+      - DB_HOST=oracle-xe
+      - DB_PORT=1521
+      - DB_SERVICE_NAME=XE
+    networks:
+      - library-network
+
+networks:
+  library-network:
+    external: true
